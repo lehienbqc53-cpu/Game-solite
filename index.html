@@ -57,7 +57,7 @@
 <script>
 // --- Cấu hình ---
 const CONFIG = {
-    baseURL: "https://lehienbqc53-cpu.github.io/Game-solite/images/",
+    baseURL: "https://lehienbqc53-cpu.github.io/Mygame/Anh/",
     scriptURL: "https://script.google.com/macros/s/AKfycbxKWLF-e4atMCwpdusjTk_EeQdD5ySRZOtVq3IyAANjtBxa66Gnp_jhl1C62qWKbd3Z/exec",
     timerDuration: 20 // seconds
 };
@@ -68,50 +68,50 @@ const ERROR_DATA = {
     sanpham: {
         errors: [
             // Cột src (Tên tệp ảnh) = Cột correctError (Tên lỗi trong bảng) + ".webp"
-            { src: "Banh_Mau_Khong_Dat.webp", correctError: "Banh_Mau_Khong_Dat" },
-            { src: "Banh_Khong_Dat_Bong_Kh.webp", correctError: "Banh_Khong_Dat_Bong_Kh" },
-            { src: "Banh_Vet_Nut_Khong_Dat.webp", correctError: "Banh_Vet_Nut_Khong_Dat" },
-            { src: "Banh_co_kem_khong_Dat.webp", correctError: "Banh_co_kem_khong_Dat" },
-            { src: "Banh_vo_Khong_Dat.webp", correctError: "Banh_vo_Khong_Dat" },
-            { src: "Banh_Troc_Vo_Khong_Dat.webp", correctError: "Banh_Troc_Vo_Khong_Dat" },
+            { src: "Banh_Mau_Khong_Dat.webp", correctError: "Bánh màu không đạt" },
+            { src: "Banh_Khong_Dat_Bong_Kh.webp", correctError: "Bánh không đạt bóng khí" },
+            { src: "Banh_Vet_Nut_Khong_Dat.webp", correctError: "Bánh vết nứt không đạt" },
+            { src: "Banh_co_kem_khong_Dat.webp", correctError: "Bánh có kem không đạt" },
+            { src: "Banh_vo_Khong_Dat.webp", correctError: "Bánh vỏ không đạt" },
+            { src: "Banh_Troc_Vo_Khong_Dat.webp", correctError: "Bánh tróc vỏ không đạt" },
         ],
         // Giữ nguyên ảnh đạt (Ảnh đạt thường không thay đổi tên)
-        goods: ["Banh_Dat_1.webp", "Banh_Dat_2.webp"] 
+        goods: ["Banh_Dat_Mau", "Banh_co_Kem_Dat","Banh_Troc_Vo_Dat","Banh_Vo_Dat","Banh_Vet_Nut_Dat"] 
     },
 
     // Chế độ: 📦 Bao bì cấp 1
     baobi1: {
         errors: [
-            { src: "Duong_Han_Qua_Nhiet.webp", correctError: "Duong_Han_Qua_Nhiet" },
-            { src: "Duong_Han_Yeu.webp", correctError: "Duong_Han_Yeu" },
-            { src: "Duong_Han_Can_Trang_Rach.webp", correctError: "Duong_Han_Can_Trang_Rach" },
-            { src: "Sai_Nhoe_Date.webp", correctError: "Sai_Nhoe_Date" },
-            { src: "Duong_Han_Bung_Dau_Dau_Lec.webp", correctError: "Duong_Han_Bung_Dau_Dau_Lec" },
-            { src: "Bang_Keo_noi_cuon.webp", correctError: "Bang_Keo_noi_cuon" },
-            { src: "Xep_Ly_xi.webp", correctError: "Xep_Ly_xi" }
+            { src: "Duong_Han_Qua_Nhiet.webp", correctError: "Đường hàn quá nhiệt" },
+            { src: "Duong_Han_Yeu.webp", correctError: "Đường hàn yếu" },
+            { src: "Duong_Han_Can_Trang_Rach.webp", correctError: "Đường hàn cấn trắng rách" },
+            { src: "Sai_Nhoe_Date.webp", correctError: "Sai, nhòe date" },
+            { src: "Duong_Han_Bung_Dau_Dau_Lec.webp", correctError: "Đường hàn bung đầu, đầu lệch" },
+            { src: "Bang_Keo_noi_cuon.webp", correctError: "Băng keo nối cuộn" },
+            { src: "Xep_Ly_xi.webp", correctError: "Xếp ly xì" }
         ],
-        goods: ["Bao_Bi_Cap_1_Dat.webp"]
+        goods: ["Banh_dat"]
     },
 
     // Chế độ: 📦 Bao bì cấp 2
     baobi2: {
         errors: [
-            { src: "Sap_xep_goi_banh_khong_dat.webp", correctError: "Sap_xep_goi_banh_khong_dat" },
-            { src: "Khay_Mop_Meo_Cong_Rach.webp", correctError: "Khay_Mop_Meo_Cong_Rach" },
-            { src: "Mang_Co_Nhan_Rach.webp", correctError: "Mang_Co_Nhan_Rach" },
-            { src: "Sai_Nhoe_date.webp", correctError: "Sai_Nhoe_date" },
-            { src: "Bang_Keo_nho_5mm_Khong_Dat.webp", correctError: "Bang_Keo_nho_5mm_Khong_Dat" },
-            { src: "Thung_Mop_Meo.webp", correctError: "Thung_Mop_Meo" },
-            { src: "Thung_Thieu_Sai_Date.webp", correctError: "Thung_Thieu_Sai_Date" },
-            { src: "Sai_Thieu_date_hop.webp", correctError: "Sai_Thieu_date_hop" },
-            { src: "Hu_Hong_Duong_Mo.webp", correctError: "Hu_Hong_Duong_Mo" },
-            { src: "Lech_Nap_Hop.webp", correctError: "Lech_Nap_Hop" },
-            { src: "Nap_Hop_dan_Khong_dung.webp", correctError: "Nap_Hop_dan_Khong_dung" },
-            { src: "Hu_hong_goc.webp", correctError: "Hu_hong_goc" },
-            { src: "Hop_Bien_dang.webp", correctError: "Hop_Bien_dang" },
-            { src: "Duong_Han_Keo_yeu_lem_keo.webp", correctError: "Duong_Han_Keo_yeu_lem_keo" } 
+            { src: "Sap_xep_goi_banh_khong_dat.webp", correctError: "Sắp xếp gói bánh không đạt" },
+            { src: "Khay_Mop_Meo_Cong_Rach.webp", correctError: "Khay móp méo cong rách" },
+            { src: "Mang_Co_Nhan_Rach.webp", correctError: "Màng co nhăn rách" },
+            { src: "Sai_Nhoe_date.webp", correctError: "Sai, nhòe date" },
+            { src: "Bang_Keo_nho_5mm_Khong_Dat.webp", correctError: "Băng keo không đạt 5cm" },
+            { src: "Thung_Mop_Meo.webp", correctError: "Thùng móp méo" },
+            { src: "Thung_Thieu_Sai_Date.webp", correctError: "Thùng thiếu, sai date" },
+            { src: "Sai_Thieu_date_hop.webp", correctError: "Sai, thiếu date hộp" },
+            { src: "Hu_Hong_Duong_Mo.webp", correctError: "Hư hỏng đường mở" },
+            { src: "Lech_Nap_Hop.webp", correctError: "Lệch nắp hộp" },
+            { src: "Nap_Hop_dan_Khong_dung.webp", correctError: "Nắp hộp dán không đúng" },
+            { src: "Hu_hong_goc.webp", correctError: "Hư hỏng góc hộp" },
+            { src: "Hop_Bien_dang.webp", correctError: "Hộp biến dạng" },
+            { src: "Duong_Han_Keo_yeu_lem_keo.webp", correctError: "Đường hàn keo yếu, lem keo" } 
         ],
-        goods: ["Bao_Bi_Cap_2_Dat.webp"]
+        goods: ["Hop_Dat.webp"]
     }
 };
 
