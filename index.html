@@ -132,13 +132,11 @@ const errorOptions = { sanpham: productErrors.map(e=>e.correctError), baobi1: pa
 async function saveScore(playerName, mode, score){
   try{
     await fetch(scriptURL, { 
-      method:"POST",
-      headers: {"Content-Type":"application/json"},
-      body: JSON.stringify({ten_nguoi_choi:playerName, muc_choi:mode, diem:score})
-    });
-    console.log("✅ Gửi điểm thành công!");
-  }catch(err){ console.error("POST lỗi:", err);}
-}
+  method:"POST",
+  mode:"no-cors", 
+  headers: {"Content-Type":"application/json"},
+  body: JSON.stringify({ten_nguoi_choi:playerName, muc_choi:mode, diem:score})
+});
 
 async function getRanking(){
   try{
@@ -230,3 +228,4 @@ setInterval(()=>{ if(rankingContainer.style.display==="block") updateRankingByMo
 </script>
 </body>
 </html>
+
