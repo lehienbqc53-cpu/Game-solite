@@ -70,7 +70,7 @@ th { background:#7c3aed; color:white;}
 
 <script>
 // Google Sheet Web App URL
-const scriptURL = "https://script.google.com/macros/s/AKfycbzwW3bHK8rNJXF-Me1plaOiVuYNN7Q8Y_ZIF-pbhpwuHU_ONfRm2NZ5w5ITnvC6P45KHA/exec";
+const scriptURL = "https://script.google.com/macros/s/AKfycbyIPxOrMLBfJzkaqUGtrXhxi7BlyTI3qJSEvuSvR9vChhLLUkJKFnDqv-Ki51yR4rlk2A/exec";
 
 // Thư mục chứa ảnh trên Github
 const baseURL = "https://raw.githubusercontent.com/lehienbqc53-cpu/Game-solite/main/images/";
@@ -133,10 +133,12 @@ async function saveScore(playerName, mode, score){
   try{
     await fetch(scriptURL, { 
   method:"POST",
-  mode:"no-cors", 
   headers: {"Content-Type":"application/json"},
   body: JSON.stringify({ten_nguoi_choi:playerName, muc_choi:mode, diem:score})
 });
+    console.log("✅ Gửi điểm thành công!");
+  }catch(err){ console.error("POST lỗi:", err);}
+}
 
 async function getRanking(){
   try{
@@ -228,4 +230,3 @@ setInterval(()=>{ if(rankingContainer.style.display==="block") updateRankingByMo
 </script>
 </body>
 </html>
-
