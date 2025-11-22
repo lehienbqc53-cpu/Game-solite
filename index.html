@@ -1,90 +1,22 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>🏭 Lăng Kính Người Tiêu Dùng</title>
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 <style>
-:root {
-  --primary-color: #6d28d9;
-  --secondary-color: #a78bfa;
-  --background-gradient: linear-gradient(135deg, #fff8dc, #ffe4e6);
-  --card-background: #ffffff;
-  --text-color: #333333;
-  --success-color: #10b981;
-  --error-color: #ef4444;
-  --border-radius-lg: 15px;
-  --border-radius-md: 10px;
-  --shadow-md: 0 4px 12px rgba(0,0,0,0.1);
-  --shadow-lg: 0 8px 25px rgba(0,0,0,0.15);
-  --highlight: #fde047;
-}
-body {
-  font-family: 'Roboto', sans-serif;
-  background: var(--background-gradient);
-  text-align: center;
-  margin: 0;
-  padding: 20px;
-  color: var(--text-color);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  min-height: 100vh;
-  box-sizing: border-box;
-}
-h1 { color: var(--primary-color); font-size: 2.5em; margin-bottom: 30px; text-shadow: 1px 1px 2px rgba(0,0,0,0.1); }
-h2 { color: var(--primary-color); margin-top: 20px; }
-
-#menu, #game-container { background: var(--card-background); border-radius: var(--border-radius-lg); box-shadow: var(--shadow-lg); padding: 30px; max-width: 700px; width: 96%; margin-top: 20px; }
-#menu h3 { color: var(--text-color); margin-bottom: 15px; }
-input[type="text"], select {
-  padding: 12px 15px;
-  border: 1px solid #d1d5db;
-  border-radius: var(--border-radius-md);
-  width: calc(100% - 30px);
-  margin-bottom: 15px;
-  font-size: 1em;
-  box-sizing: border-box;
-  transition: border-color 0.3s ease;
-}
-input[type="text"]:focus, select:focus { border-color: var(--primary-color); outline: none; box-shadow: 0 0 0 3px rgba(109,40,217,0.12); }
-
-img#biscuitImage { max-width: 100%; height: auto; border-radius: var(--border-radius-md); margin-bottom: 25px; box-shadow: var(--shadow-md); background-color: #f0f0f0; min-height: 220px; object-fit: contain; }
-
-button { padding: 12px 25px; border: none; border-radius: var(--border-radius-md); margin: 8px; background-color: var(--primary-color); color: white; font-weight: bold; font-size: 1.05em; cursor: pointer; transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease; display: inline-flex; align-items: center; gap: 8px; }
-button:hover { background-color: var(--secondary-color); transform: translateY(-2px); box-shadow: 0 4px 10px rgba(0,0,0,0.2); }
-button:active { transform: translateY(0); box-shadow: 0 2px 5px rgba(0,0,0,0.2); }
-button.answer-btn-good { background-color: var(--success-color); }
-button.answer-btn-good:hover { background-color: #059669; }
-button.answer-btn-bad { background-color: var(--error-color); }
-button.answer-btn-bad:hover { background-color: #dc2626; }
-button.next-btn { background-color: var(--primary-color); margin-top: 20px; }
-
-#result { font-size: 1.2em; font-weight: bold; margin-top: 20px; min-height: 28px; }
-#score, #timer { font-size: 1.1em; font-weight: bold; margin-top: 10px; }
-#score { color: var(--success-color); }
-#timer { color: var(--error-color); margin-bottom: 10px; }
-
-#errorSection { background-color: #fefce8; border: 1px solid #fde68a; border-radius: var(--border-radius-md); padding: 15px; margin-top: 20px; text-align:left; }
-#errorSection p { color: #b45309; font-weight: bold; margin-bottom: 10px; }
-
-table { width: 100%; border-collapse: collapse; margin-top: 18px; border-radius: var(--border-radius-md); overflow: hidden; box-shadow: var(--shadow-md); }
-th, td { border: 1px solid #e5e7eb; padding: 12px 10px; font-size: 0.95em; text-align: left; }
-th { background: var(--primary-color); color: white; font-weight: bold; text-transform: uppercase; }
-tr:nth-child(even) { background-color: #f9fafb; }
-tr:hover { background-color: #f3f4f6; }
-.highlight { background-color: var(--highlight) !important; }
-
-@media (max-width: 600px) {
-  h1 { font-size: 2em; }
-  button { width: calc(100% - 16px); margin-left: 0; margin-right: 0; }
-  input[type="text"], select { width: 100%; }
-}
-
-#ranking-wrapper { display: none; margin-top: 20px; max-width: 700px; width: 96%; }
-#ranking-controls { display:flex; gap:10px; align-items:center; justify-content:flex-start; margin-top:8px; }
+body { font-family:'Roboto', sans-serif; background:#fff8dc; text-align:center; padding:20px;}
+h1 { color:#6d28d9; }
+button { padding:10px 20px; margin:5px; cursor:pointer; }
+#game-container, #ranking-wrapper { display:none; margin-top:20px;}
+table { width:100%; border-collapse: collapse; margin-top:10px;}
+th, td { border:1px solid #ccc; padding:8px;}
+.highlight { background:#fde047;}
+#biscuitImage { max-width:300px; height:auto; margin-bottom:15px;}
+#errorSection { margin-top:10px;}
+#timer, #score { margin-top:10px; font-weight:bold;}
 </style>
 </head>
 <body>
@@ -92,66 +24,52 @@ tr:hover { background-color: #f3f4f6; }
 <h1>🏭 Lăng Kính Người Tiêu Dùng</h1>
 
 <div id="menu">
-  <h3>Nhập tên của bạn:</h3>
-  <input type="text" id="playerName" placeholder="Nhập tên của bạn...">
-  <h2>Chọn chế độ chơi:</h2>
+  <input type="text" id="playerName" placeholder="Nhập tên của bạn..."><br>
   <button onclick="startGame('sanpham')"><i class="fas fa-cookie-bite"></i> Sản phẩm</button>
   <button onclick="startGame('baobi1')"><i class="fas fa-box"></i> Bao bì cấp 1</button>
   <button onclick="startGame('baobi2')"><i class="fas fa-boxes"></i> Bao bì cấp 2</button>
 </div>
 
-<div id="game-container" style="display:none;">
+<div id="game-container">
   <div id="timer">Thời gian: 20s</div>
   <img id="biscuitImage" src="" alt="Ảnh lỗi QC">
   <div>
-    <button class="answer-btn-good" onclick="checkAnswer(true)"><i class="fas fa-check-circle"></i> Đạt</button>
-    <button class="answer-btn-bad" onclick="checkAnswer(false)"><i class="fas fa-times-circle"></i> Lỗi</button>
+    <button onclick="checkAnswer(true)"><i class="fas fa-check-circle"></i> Đạt</button>
+    <button onclick="checkAnswer(false)"><i class="fas fa-times-circle"></i> Lỗi</button>
   </div>
 
   <div id="errorSection" style="display:none;">
-    <p>Chọn loại lỗi:</p>
     <select id="errorSelect"></select>
-    <br>
-    <button class="next-btn" onclick="submitError()"><i class="fas fa-check"></i> Xác nhận</button>
+    <button onclick="submitError()"><i class="fas fa-check"></i> Xác nhận lỗi</button>
   </div>
 
   <div id="result"></div>
   <div id="score">Điểm: 0</div>
-  <br>
-  <button class="next-btn" onclick="nextImage()"><i class="fas fa-arrow-right"></i> Ảnh tiếp theo</button>
+  <button onclick="nextImage()"><i class="fas fa-arrow-right"></i> Ảnh tiếp theo</button>
 </div>
 
 <div id="ranking-wrapper">
-  <div id="ranking-box" style="background: white; border-radius: 15px; box-shadow: 0 8px 25px rgba(0,0,0,0.15); padding:20px; max-width:700px; width:100%; text-align:left;">
-    <h2 style="margin-top:0;">🎉 Hoàn thành!</h2>
-    <p id="finalScoreText" style="font-weight:bold;"></p>
-    <div id="ranking-controls">
-      <label for="rankingFilter" style="margin-right:8px;">Lọc mục chơi:</label>
-      <select id="rankingFilter" onchange="filterRanking()">
-        <option value="">Tất cả</option>
-        <option value="sanpham">Sản phẩm</option>
-        <option value="baobi1">Bao bì cấp 1</option>
-        <option value="baobi2">Bao bì cấp 2</option>
-      </select>
-    </div>
-    <div id="ranking-table-wrap" style="margin-top:12px;">
-      <table id="rankingTable"></table>
-    </div>
-    <div style="margin-top:12px;">
-      <button onclick="location.reload()"><i class="fas fa-redo"></i> Chơi lại</button>
-    </div>
-  </div>
+  <h2>🎉 Hoàn thành!</h2>
+  <p id="finalScoreText"></p>
+  <label>Lọc: 
+    <select id="rankingFilter" onchange="filterRanking()">
+      <option value="">Tất cả</option>
+      <option value="sanpham">Sản phẩm</option>
+      <option value="baobi1">Bao bì cấp 1</option>
+      <option value="baobi2">Bao bì cấp 2</option>
+    </select>
+  </label>
+  <table id="rankingTable"></table>
+  <button onclick="location.reload()"><i class="fas fa-redo"></i> Chơi lại</button>
 </div>
 
 <script>
-// ====================== CONFIG ======================
 const CONFIG = {
   baseURL: "https://raw.githubusercontent.com/lehienbqc53-cpu/Game-solite/main/images/",
-  scriptURL: "https://script.google.com/macros/s/AKfycbxsilRyveXLBph1D1XWd3SOCXhMmdum4PDeDfdRz5AuTRaOLvepbhVTCR3WP9o76EuJVA/exec",
+  scriptURL: "https://script.google.com/macros/s/AKfycbyIPxOrMLBfJzkaqUGtrXhxi7BlyTI3qJSEvuSvR9vChhLLUkJKFnDqv-Ki51yR4rlk2A/exec",
   timerDuration: 20
 };
 
-// ====================== DATA ======================
 const ERROR_DATA = {
   sanpham: {
     errors: [
@@ -162,7 +80,7 @@ const ERROR_DATA = {
       { src: "Banh_vo_Khong_Dat.webp", correctError: "Bánh vỡ không đạt" },
       { src: "Banh_Troc_Vo_Khong_Dat.webp", correctError: "Bánh tróc vỏ không đạt" }
     ],
-    goods: ["Banh_Mau_Dat.webp", "Banh_Co_Kem_Dat.webp", "Banh_Troc_Vo_Dat.webp", "Banh_Vo_Dat.webp", "Banh_Vet_Nut_Dat.webp", "Banh_Dat_Bong_Khi.webp"]
+    goods: ["Banh_Mau_Dat.webp","Banh_Co_Kem_Dat.webp","Banh_Troc_Vo_Dat.webp","Banh_Vo_Dat.webp","Banh_Vet_Nut_Dat.webp","Banh_Dat_Bong_Khi.webp"]
   },
   baobi1: {
     errors: [
@@ -197,204 +115,121 @@ const ERROR_DATA = {
   }
 };
 
-const MODE_MAP = { sanpham: "Sản phẩm", baobi1: "Bao bì cấp 1", baobi2: "Bao bì cấp 2" };
-const REVERSE_MODE_MAP = Object.entries(MODE_MAP).reduce((acc,[k,v])=>{ acc[v]=k; return acc; }, {});
+const MODE_MAP = { sanpham:"Sản phẩm", baobi1:"Bao bì cấp 1", baobi2:"Bao bì cấp 2" };
 
-// ====================== QCGame CLASS ======================
-class QCGame {
-  constructor() {
-    this.images = [];
-    this.mode = "";
-    this.current = 0;
-    this.score = 0;
-    this.answered = false;
-    this.timeLeft = CONFIG.timerDuration;
-    this.timerInterval = null;
-    this.playerName = "";
+let images=[], current=0, score=0, answered=false, timerInterval, mode="", playerName="";
 
-    this.dom = {
-      menu: document.getElementById("menu"),
-      gameContainer: document.getElementById("game-container"),
-      playerNameInput: document.getElementById("playerName"),
-      timerElement: document.getElementById("timer"),
-      imgElement: document.getElementById("biscuitImage"),
-      resultElement: document.getElementById("result"),
-      scoreElement: document.getElementById("score"),
-      errorSection: document.getElementById("errorSection"),
-      errorSelect: document.getElementById("errorSelect"),
-      rankingWrapper: document.getElementById("ranking-wrapper"),
-      finalScoreText: document.getElementById("finalScoreText"),
-      rankingTable: document.getElementById("rankingTable"),
-      rankingFilter: document.getElementById("rankingFilter")
-    };
+function startGame(selectedMode){
+  playerName=document.getElementById("playerName").value.trim();
+  if(!playerName){ alert("Nhập tên!"); return;}
+  mode=selectedMode;
+  images=[];
+  ERROR_DATA[mode].errors.forEach(e=>images.push({src:e.src,isGood:false,correctError:e.correctError}));
+  ERROR_DATA[mode].goods.forEach(g=>images.push({src:g,isGood:true,correctError:"Đạt"}));
+  images.sort(()=>Math.random()-0.5);
+  current=0; score=0; answered=false;
 
-    window.startGame = this.startGame.bind(this);
-    window.checkAnswer = this.checkAnswer.bind(this);
-    window.submitError = this.submitError.bind(this);
-    window.nextImage = this.nextImage.bind(this);
-    window.filterRanking = this.filterRanking.bind(this);
-  }
-
-  shuffleArray(array) {
-    for (let i = array.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [array[i], array[j]] = [array[j], array[i]];
-    }
-  }
-
-  loadGameData(mode) {
-    const timestamp = `?v=${Date.now()}`;
-    const data = ERROR_DATA[mode];
-    let allImages = [];
-    data.errors.forEach(err => allImages.push({ src: CONFIG.baseURL+err.src+timestamp, isGood:false, correctError:err.correctError }));
-    data.goods.forEach(goodSrc => allImages.push({ src: CONFIG.baseURL+goodSrc+timestamp, isGood:true, correctError:"Đạt" }));
-    this.shuffleArray(allImages);
-    return allImages;
-  }
-
-  startGame(selectedMode) {
-    this.playerName = this.dom.playerNameInput.value.trim();
-    if (!this.playerName) { alert("Hãy nhập tên!"); return; }
-    this.mode = selectedMode;
-    this.images = this.loadGameData(this.mode);
-    this.current = 0;
-    this.score = 0;
-    this.answered = false;
-    this.dom.menu.style.display = "none";
-    this.dom.gameContainer.style.display = "block";
-    this.loadErrorOptions();
-    this.loadImage();
-    this.dom.rankingWrapper.style.display = "none";
-  }
-
-  loadErrorOptions() {
-    const list = ERROR_DATA[this.mode].errors.map(e=>e.correctError);
-    this.dom.errorSelect.innerHTML="<option value=''>-- Chọn loại lỗi --</option>";
-    list.forEach(opt => {
-      const option = document.createElement("option");
-      option.value = opt;
-      option.textContent = opt;
-      this.dom.errorSelect.appendChild(option);
-    });
-  }
-
-  startTimer() {
-    this.timeLeft = CONFIG.timerDuration;
-    this.dom.timerElement.textContent = `Thời gian: ${this.timeLeft}s`;
-    this.timerInterval = setInterval(()=>{
-      this.timeLeft--;
-      this.dom.timerElement.textContent = `Thời gian: ${this.timeLeft}s`;
-      if(this.timeLeft<=0){
-        clearInterval(this.timerInterval);
-        this.dom.resultElement.textContent = "⏰ Hết thời gian!";
-        this.answered=true;
-        this.dom.errorSection.style.display="none";
-        setTimeout(()=>this.nextImage(),1000);
-      }
-    },1000);
-  }
-
-  loadImage() {
-    if(this.current >= this.images.length) { this.finishGame(); return; }
-    this.answered=false;
-    const imgObj = this.images[this.current];
-    this.dom.imgElement.src = imgObj.src;
-    this.dom.resultElement.textContent="";
-    this.dom.errorSection.style.display="none";
-    clearInterval(this.timerInterval);
-    this.startTimer();
-  }
-
-  checkAnswer(isGood) {
-    if(this.answered) return;
-    this.answered=true;
-    clearInterval(this.timerInterval);
-    const imgObj=this.images[this.current];
-    if(isGood){
-      if(imgObj.isGood){
-        this.dom.resultElement.textContent="✅ Chính xác!";
-        this.score++;
-      } else {
-        this.dom.resultElement.textContent="❌ Sai!";
-        this.dom.errorSection.style.display="block";
-      }
-    } else {
-      if(!imgObj.isGood){
-        this.dom.errorSection.style.display="block";
-      } else {
-        this.dom.resultElement.textContent="❌ Sai!";
-      }
-    }
-    this.dom.scoreElement.textContent=`Điểm: ${this.score}`;
-  }
-
-  submitError() {
-    const selectedError = this.dom.errorSelect.value;
-    if(!selectedError){ alert("Chọn loại lỗi!"); return; }
-    this.dom.resultElement.textContent=`✅ Lỗi đã chọn: ${selectedError}`;
-    this.nextImage();
-  }
-
-  nextImage() {
-    this.current++;
-    this.loadImage();
-  }
-
-  finishGame() {
-    this.dom.gameContainer.style.display="none";
-    this.dom.rankingWrapper.style.display="block";
-    this.dom.finalScoreText.textContent = `${this.playerName}, bạn đạt ${this.score} điểm trong chế độ "${MODE_MAP[this.mode]}"`;
-    this.postScore();
-  }
-
-  postScore() {
-    fetch(`${CONFIG.scriptURL}?action=addScore&name=${encodeURIComponent(this.playerName)}&score=${this.score}&mode=${this.mode}`)
-      .then(resp=>resp.json())
-      .then(()=>this.getRanking())
-      .catch(err=>console.error(err));
-  }
-
-  getRanking() {
-    fetch(`${CONFIG.scriptURL}?action=getRanking`)
-      .then(resp=>resp.json())
-      .then(data=>{
-        this.renderRankingTable(data);
-      })
-      .catch(err=>console.error(err));
-  }
-
-  renderRankingTable(data) {
-    const filter = this.dom.rankingFilter.value;
-    let filtered = filter ? data.filter(d=>d.mode===filter) : data;
-    filtered.sort((a,b)=>b.score-a.score);
-    const table = this.dom.rankingTable;
-    table.innerHTML="";
-    const header = document.createElement("tr");
-    ["Hạng","Tên","Điểm","Chế độ"].forEach(h=>{
-      const th = document.createElement("th"); th.textContent=h; header.appendChild(th);
-    });
-    table.appendChild(header);
-    filtered.forEach((row,i)=>{
-      const tr = document.createElement("tr");
-      if(i<3) tr.classList.add("highlight");
-      [i+1,row.name,row.score,MODE_MAP[row.mode]].forEach(text=>{
-        const td = document.createElement("td");
-        td.textContent=text;
-        tr.appendChild(td);
-      });
-      table.appendChild(tr);
-    });
-  }
-
-  filterRanking() {
-    this.getRanking();
-  }
+  document.getElementById("menu").style.display="none";
+  document.getElementById("game-container").style.display="block";
+  loadErrorOptions();
+  loadImage();
 }
 
-// ====================== INIT ======================
-const game = new QCGame();
+function loadErrorOptions(){
+  const select=document.getElementById("errorSelect");
+  select.innerHTML="<option value=''>-- Chọn lỗi --</option>";
+  ERROR_DATA[mode].errors.forEach(e=>{
+    const opt=document.createElement("option");
+    opt.value=e.correctError; opt.textContent=e.correctError;
+    select.appendChild(opt);
+  });
+}
+
+function startTimer(){
+  let timeLeft=CONFIG.timerDuration;
+  document.getElementById("timer").textContent="Thời gian: "+timeLeft+"s";
+  timerInterval=setInterval(()=>{
+    timeLeft--;
+    document.getElementById("timer").textContent="Thời gian: "+timeLeft+"s";
+    if(timeLeft<=0){ clearInterval(timerInterval); answered=true; nextImage();}
+  },1000);
+}
+
+function loadImage(){
+  const img=images[current];
+  document.getElementById("biscuitImage").src=CONFIG.baseURL+img.src;
+  document.getElementById("result").textContent="";
+  document.getElementById("score").textContent="Điểm: "+score;
+  document.getElementById("errorSection").style.display="none";
+  answered=false;
+  clearInterval(timerInterval); startTimer();
+}
+
+function checkAnswer(isGood){
+  if(answered) return;
+  const img=images[current]; clearInterval(timerInterval);
+  if(img.isGood){ if(isGood){ score++; document.getElementById("result").textContent="✅ Đúng!";} 
+  else {document.getElementById("result").textContent="❌ Sai, là ảnh đạt!";} answered=true;}
+  else { if(!isGood){ document.getElementById("result").textContent="Chọn loại lỗi"; document.getElementById("errorSection").style.display="block";}
+  else {document.getElementById("result").textContent="❌ Sai!"; answered=true;} }
+  document.getElementById("score").textContent="Điểm: "+score;
+}
+
+function submitError(){
+  if(answered) return;
+  const selected=document.getElementById("errorSelect").value;
+  const img=images[current];
+  if(!selected){ document.getElementById("result").textContent="⚠️ Chọn loại lỗi!"; return;}
+  if(selected===img.correctError){ score++; document.getElementById("result").textContent="✅ Đúng!";}
+  else{ document.getElementById("result").textContent="❌ Sai! Đáp án: "+img.correctError;}
+  document.getElementById("score").textContent="Điểm: "+score;
+  answered=true; document.getElementById("errorSection").style.display="none";
+}
+
+function nextImage(){
+  if(current<images.length-1){ current++; loadImage();}
+  else{ showFinalScore();}
+}
+
+/* =========================
+   Google Sheet
+========================= */
+async function postScore(){
+  const payload={action:"save",ten_nguoi_choi:playerName,muc_choi:mode,diem:score};
+  await fetch(CONFIG.scriptURL,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(payload)});
+}
+
+async function getRanking(){
+  const res=await fetch(CONFIG.scriptURL+"?action=getRanking");
+  return res.json();
+}
+
+async function showFinalScore(){
+  clearInterval(timerInterval);
+  document.getElementById("game-container").style.display="none";
+  document.getElementById("ranking-wrapper").style.display="block";
+  document.getElementById("finalScoreText").textContent="Điểm của bạn: "+score+"/"+images.length;
+  await postScore();
+  const ranking=await getRanking();
+  renderRankingTable(ranking);
+}
+
+function renderRankingTable(data, filter=""){
+  const table=document.getElementById("rankingTable"); let html="<tr><th>Hạng</th><th>Tên</th><th>Chế độ</th><th>Điểm</th></tr>";
+  let rows=data; if(filter) rows=rows.filter(r=>r.muc_choi===filter);
+  rows.sort((a,b)=>b.diem-a.diem); rows.slice(0,10).forEach((r,i)=>{
+    const highlight=(r.ten_nguoi_choi===playerName && r.diem===score)?"highlight":"";
+    html+="<tr class='"+highlight+"'><td>"+(i+1)+"</td><td>"+r.ten_nguoi_choi+"</td><td>"+r.muc_choi+"</td><td>"+r.diem+"</td></tr>";
+  });
+  table.innerHTML=html;
+}
+
+async function filterRanking(){
+  const sel=document.getElementById("rankingFilter").value;
+  const data=await getRanking();
+  renderRankingTable(data,sel);
+}
 </script>
 
 </body>
 </html>
-
