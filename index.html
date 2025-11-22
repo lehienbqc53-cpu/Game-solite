@@ -1,27 +1,26 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>🏭 Lăng Kính Người Tiêu Dùng</title>
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 <style>
   :root {
-    --primary-color: #6d28d9; /* Màu tím đậm */
-    --secondary-color: #a78bfa; /* Màu tím nhạt hơn */
-    --background-light: #f3e8ff; /* Nền rất nhạt */
-    --background-gradient: linear-gradient(135deg, #fff8dc, #ffe4e6); /* Nền vàng hồng */
+    --primary-color: #6d28d9;
+    --secondary-color: #a78bfa;
+    --background-gradient: linear-gradient(135deg, #fff8dc, #ffe4e6);
     --card-background: #ffffff;
     --text-color: #333333;
-    --success-color: #10b981; /* Xanh lá */
-    --error-color: #ef4444; /* Đỏ */
+    --success-color: #10b981;
+    --error-color: #ef4444;
     --border-radius-lg: 15px;
     --border-radius-md: 10px;
     --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.1);
     --shadow-lg: 0 8px 25px rgba(0, 0, 0, 0.15);
+    --highlight: #fde047;
   }
-
   body {
     font-family: 'Roboto', sans-serif;
     background: var(--background-gradient);
@@ -35,195 +34,66 @@
     min-height: 100vh;
     box-sizing: border-box;
   }
+  h1 { color: var(--primary-color); font-size: 2.5em; margin-bottom: 30px; text-shadow: 1px 1px 2px rgba(0,0,0,0.1); }
+  h2 { color: var(--primary-color); margin-top: 20px; }
 
-  h1 {
-    color: var(--primary-color);
-    font-size: 2.5em;
-    margin-bottom: 30px;
-    text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
-  }
-
-  h2 {
-    color: var(--primary-color);
-    margin-top: 20px;
-  }
-
-  #menu, #game-container {
-    background: var(--card-background);
-    border-radius: var(--border-radius-lg);
-    box-shadow: var(--shadow-lg);
-    padding: 30px;
-    max-width: 550px;
-    width: 90%;
-    margin-top: 20px;
-  }
-
-  #menu h3 {
-    color: var(--text-color);
-    margin-bottom: 15px;
-  }
-
+  #menu, #game-container { background: var(--card-background); border-radius: var(--border-radius-lg); box-shadow: var(--shadow-lg); padding: 30px; max-width: 700px; width: 96%; margin-top: 20px; }
+  #menu h3 { color: var(--text-color); margin-bottom: 15px; }
   input[type="text"], select {
     padding: 12px 15px;
     border: 1px solid #d1d5db;
     border-radius: var(--border-radius-md);
-    width: calc(100% - 30px); /* Adjust for padding */
+    width: calc(100% - 30px);
     margin-bottom: 15px;
     font-size: 1em;
     box-sizing: border-box;
     transition: border-color 0.3s ease;
   }
+  input[type="text"]:focus, select:focus { border-color: var(--primary-color); outline: none; box-shadow: 0 0 0 3px rgba(109, 40, 217, 0.12); }
 
-  input[type="text"]:focus, select:focus {
-    border-color: var(--primary-color);
-    outline: none;
-    box-shadow: 0 0 0 3px rgba(109, 40, 217, 0.2);
-  }
+  img#biscuitImage { max-width: 100%; height: auto; border-radius: var(--border-radius-md); margin-bottom: 25px; box-shadow: var(--shadow-md); background-color: #f0f0f0; min-height: 220px; object-fit: contain; }
 
-  img#biscuitImage {
-    max-width: 100%;
-    height: auto;
-    border-radius: var(--border-radius-md);
-    margin-bottom: 25px;
-    box-shadow: var(--shadow-md);
-    background-color: #f0f0f0; /* Placeholder background */
-    min-height: 200px; /* Minimum height for image container */
-    object-fit: contain; /* Ensure image fits without cropping */
-  }
+  button { padding: 12px 25px; border: none; border-radius: var(--border-radius-md); margin: 8px; background-color: var(--primary-color); color: white; font-weight: bold; font-size: 1.05em; cursor: pointer; transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease; display: inline-flex; align-items: center; gap: 8px; }
+  button:hover { background-color: var(--secondary-color); transform: translateY(-2px); box-shadow: 0 4px 10px rgba(0,0,0,0.2); }
+  button:active { transform: translateY(0); box-shadow: 0 2px 5px rgba(0,0,0,0.2); }
 
-  button {
-    padding: 12px 25px;
-    border: none;
-    border-radius: var(--border-radius-md);
-    margin: 8px;
-    background-color: var(--primary-color);
-    color: white;
-    font-weight: bold;
-    font-size: 1.1em;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-  }
+  button.answer-btn-good { background-color: var(--success-color); }
+  button.answer-btn-good:hover { background-color: #059669; }
+  button.answer-btn-bad { background-color: var(--error-color); }
+  button.answer-btn-bad:hover { background-color: #dc2626; }
+  button.next-btn { background-color: var(--primary-color); margin-top: 20px; }
 
-  button:hover {
-    background-color: var(--secondary-color);
-    transform: translateY(-2px);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-  }
+  #result { font-size: 1.2em; font-weight: bold; margin-top: 20px; min-height: 28px; }
+  #score, #timer { font-size: 1.1em; font-weight: bold; margin-top: 10px; }
+  #score { color: var(--success-color); }
+  #timer { color: var(--error-color); margin-bottom: 10px; }
 
-  button:active {
-    transform: translateY(0);
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-  }
+  #errorSection { background-color: #fefce8; border: 1px solid #fde68a; border-radius: var(--border-radius-md); padding: 15px; margin-top: 20px; text-align:left; }
+  #errorSection p { color: #b45309; font-weight: bold; margin-bottom: 10px; }
 
-  button.answer-btn-good {
-    background-color: var(--success-color);
-  }
-  button.answer-btn-good:hover {
-    background-color: #059669;
-  }
-  button.answer-btn-bad {
-    background-color: var(--error-color);
-  }
-  button.answer-btn-bad:hover {
-    background-color: #dc2626;
-  }
-  button.next-btn {
-    background-color: var(--primary-color);
-    margin-top: 20px;
-  }
-  button.next-btn:hover {
-    background-color: var(--secondary-color);
-  }
-
-  #result {
-    font-size: 1.3em;
-    font-weight: bold;
-    margin-top: 20px;
-    min-height: 25px; /* Prevent layout shift */
-  }
-
-  #score, #timer {
-    font-size: 1.2em;
-    font-weight: bold;
-    margin-top: 10px;
-  }
-
-  #score {
-    color: var(--success-color);
-  }
-
-  #timer {
-    color: var(--error-color);
-    margin-bottom: 20px;
-  }
-
-  #errorSection {
-    background-color: #fefce8; /* Nền vàng nhạt */
-    border: 1px solid #fde68a; /* Viền vàng */
-    border-radius: var(--border-radius-md);
-    padding: 15px;
-    margin-top: 20px;
-  }
-
-  #errorSection p {
-    color: #b45309; /* Chữ màu cam */
-    font-weight: bold;
-    margin-bottom: 10px;
-  }
-
-  table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 25px;
-    border-radius: var(--border-radius-md);
-    overflow: hidden; /* Ensures border-radius applies to table */
-    box-shadow: var(--shadow-md);
-  }
-
-  th, td {
-    border: 1px solid #e5e7eb; /* Màu viền bảng nhạt */
-    padding: 12px 10px;
-    font-size: 0.95em;
-    text-align: left;
-  }
-
-  th {
-    background: var(--primary-color);
-    color: white;
-    font-weight: bold;
-    text-transform: uppercase;
-  }
-
-  tr:nth-child(even) {
-    background-color: #f9fafb; /* Dòng chẵn màu hơi xám */
-  }
-  tr:hover {
-    background-color: #f3f4f6; /* Hiệu ứng hover cho dòng */
-  }
+  table { width: 100%; border-collapse: collapse; margin-top: 18px; border-radius: var(--border-radius-md); overflow: hidden; box-shadow: var(--shadow-md); }
+  th, td { border: 1px solid #e5e7eb; padding: 12px 10px; font-size: 0.95em; text-align: left; }
+  th { background: var(--primary-color); color: white; font-weight: bold; text-transform: uppercase; }
+  tr:nth-child(even) { background-color: #f9fafb; }
+  tr:hover { background-color: #f3f4f6; }
+  .highlight { background-color: var(--highlight) !important; }
 
   @media (max-width: 600px) {
-    h1 {
-      font-size: 2em;
-    }
-    button {
-      width: calc(100% - 16px);
-      margin-left: 0;
-      margin-right: 0;
-    }
-    input[type="text"], select {
-      width: 100%;
-    }
+    h1 { font-size: 2em; }
+    button { width: calc(100% - 16px); margin-left: 0; margin-right: 0; }
+    input[type="text"], select { width: 100%; }
   }
+
+  /* Ranking container (hidden until end) */
+  #ranking-wrapper { display: none; margin-top: 20px; max-width: 700px; width: 96%; }
+  #ranking-controls { display:flex; gap:10px; align-items:center; justify-content:flex-start; margin-top:8px; }
 </style>
 </head>
 <body>
 
 <h1>🏭 Lăng Kính Người Tiêu Dùng</h1>
 
+<!-- MENU -->
 <div id="menu">
   <h3>Nhập tên của bạn:</h3>
   <input type="text" id="playerName" placeholder="Nhập tên của bạn...">
@@ -233,6 +103,7 @@
   <button onclick="startGame('baobi2')"><i class="fas fa-boxes"></i> Bao bì cấp 2</button>
 </div>
 
+<!-- GAME -->
 <div id="game-container" style="display:none;">
   <div id="timer">Thời gian: 20s</div>
   <img id="biscuitImage" src="" alt="Ảnh lỗi QC">
@@ -254,309 +125,417 @@
   <button class="next-btn" onclick="nextImage()"><i class="fas fa-arrow-right"></i> Ảnh tiếp theo</button>
 </div>
 
+<!-- RANKING (sẽ được hiển thị khi kết thúc) -->
+<div id="ranking-wrapper">
+  <div id="ranking-box" style="background: white; border-radius: 15px; box-shadow: 0 8px 25px rgba(0,0,0,0.15); padding:20px; max-width:700px; width:100%; text-align:left;">
+    <h2 style="margin-top:0;">🎉 Hoàn thành!</h2>
+    <p id="finalScoreText" style="font-weight:bold;"></p>
+
+    <div id="ranking-controls">
+      <label for="rankingFilter" style="margin-right:8px;">Lọc mục chơi:</label>
+      <select id="rankingFilter" onchange="filterRanking()">
+        <option value="">Tất cả</option>
+        <option value="sanpham">Sản phẩm</option>
+        <option value="baobi1">Bao bì cấp 1</option>
+        <option value="baobi2">Bao bì cấp 2</option>
+      </select>
+    </div>
+
+    <div id="ranking-table-wrap" style="margin-top:12px;">
+      <table id="rankingTable">
+        <!-- filled dynamically -->
+      </table>
+    </div>
+
+    <div style="margin-top:12px;">
+      <button onclick="location.reload()"><i class="fas fa-redo"></i> Chơi lại</button>
+    </div>
+  </div>
+</div>
+
 <script>
-// --- Cấu hình ---
+/* =========================
+   CONFIG (thay scriptURL nếu bạn dùng web app khác)
+   ========================= */
 const CONFIG = {
-    // Đảm bảo đường dẫn này trỏ đến thư mục ảnh Raw Content trên GitHub của bạn
-    // Ví dụ: "https://raw.githubusercontent.com/lehienbqc53-cpu/Game-solite/main/images/"
-    baseURL: "https://raw.githubusercontent.com/lehienbqc53-cpu/Game-solite/main/images/",
-    scriptURL: "https://script.google.com/macros/s/AKfycbxKWLF-e4atMCwpdusjTk_EeQdD5ySRZOtVq3IyAANjtBxa66Gnp_jhl1C62qWKbd3Z/exec",
-    timerDuration: 20 // seconds
+  baseURL: "https://raw.githubusercontent.com/lehienbqc53-cpu/Game-solite/main/images/",
+  scriptURL: "https://script.google.com/macros/s/AKfycbx3df0R8HlIqxKo3zVmstP63_ucmOxuq8AInI5hjUeD1UM0GD4pKjMptYsqZC4T0kkdpw/exec",
+  timerDuration: 20
 };
 
-// --- Dữ liệu lỗi (Tên ảnh và tên lỗi) ---
+/* =========================
+   Dữ liệu lỗi + ảnh (giữ tương tự trước)
+   ========================= */
 const ERROR_DATA = {
-    sanpham: {
-        errors: [
-            { src: "Banh_Mau_Khong_Dat.webp", correctError: "Bánh màu không đạt" },
-            { src: "Banh_Khong_Dat_Bong_Khi.webp", correctError: "Bánh không đạt bóng khí" },
-            { src: "Banh_Vet_Nut_Khong_Dat.webp", correctError: "Bánh vết nứt không đạt" },
-            { src: "Banh_co_kem_khong_Dat.webp", correctError: "Bánh có kem không đạt" },
-            { src: "Banh_vo_Khong_Dat.webp", correctError: "Bánh vỡ không đạt" },
-            { src: "Banh_Troc_Vo_Khong_Dat.webp", correctError: "Bánh tróc vỏ không đạt" },
-        ],
-        goods: ["Banh_Mau_Dat.webp", "Banh_Co_Kem_Dat.webp", "Banh_Troc_Vo_Dat.webp", "Banh_Vo_Dat.webp", "Banh_Vet_Nut_Dat.webp","Banh_Dat_Bong_Khi.webp"]
-    },
-    baobi1: {
-        errors: [
-            { src: "Duong_Han_Qua_Nhiet.webp", correctError: "Đường hàn quá nhiệt" },
-            { src: "Duong_Han_Yeu.webp", correctError: "Đường hàn yếu" },
-            { src: "Duong_han_can_trang_rach.webp", correctError: "Đường hàn cấn trắng rách" },
-            { src: "Sai_Nhoe_Date.webp", correctError: "Sai, nhòe date" },
-            { src: "Duong_han_bung_dau_duoi_lech.webp", correctError: "Đường hàn bung đầu, đầu lệch" },
-            { src: "Bang_Keo_noi_cuon.webp", correctError: "Băng keo nối cuộn" },
-            { src: "Xep_Ly_xi.webp", correctError: "Xếp ly xì" }
-        ],
-        goods: ["Banh_dat.webp"]
-    },
-    baobi2: {
-        errors: [
-            { src: "Sap_xep_goi_banh_khong_dat.webp", correctError: "Sắp xếp gói bánh không đạt" },
-            { src: "Khay_Mop_Meo_Cong_Rach.webp", correctError: "Khay móp méo cong rách" },
-            { src: "Mang_Co_Nhan_Rach.webp", correctError: "Màng co nhăn rách" },
-            { src: "Sai_Nhoe_date.webp", correctError: "Sai, nhòe date" },
-            { src: "Bang_Keo_nho_5mm_khong_dat.webp", correctError: "Băng keo không đạt 5cm" },
-            { src: "Thung_Mop_Meo.webp", correctError: "Thùng móp méo" },
-            { src: "Thung_Thieu_Sai_date.webp", correctError: "Thùng thiếu, sai date" },
-            { src: "Sai_Thieu_date_hop.webp", correctError: "Sai, thiếu date hộp" },
-            { src: "Hu_Hong_Duong_Mo.webp", correctError: "Hư hỏng đường mở" },
-            { src: "Lech_Nap_Hop.webp", correctError: "Lệch nắp hộp" },
-            { src: "Nap_hop_dan_khong_dung.webp", correctError: "Nắp hộp dán không đúng" },
-            { src: "Hu_hong_goc.webp", correctError: "Hư hỏng góc hộp" },
-            { src: "Hop_Bien_dang.webp", correctError: "Hộp biến dạng" },
-            { src: "Duong_han_keo_yeu_lem_keo.webp", correctError: "Đường hàn keo yếu, lem keo" }
-        ],
-        goods: ["Hop_Dat.webp"]
-    }
+  sanpham: {
+    errors: [
+      { src: "Banh_Mau_Khong_Dat.webp", correctError: "Bánh màu không đạt" },
+      { src: "Banh_Khong_Dat_Bong_Khi.webp", correctError: "Bánh không đạt bóng khí" },
+      { src: "Banh_Vet_Nut_Khong_Dat.webp", correctError: "Bánh vết nứt không đạt" },
+      { src: "Banh_co_kem_khong_Dat.webp", correctError: "Bánh có kem không đạt" },
+      { src: "Banh_vo_Khong_Dat.webp", correctError: "Bánh vỡ không đạt" },
+      { src: "Banh_Troc_Vo_Khong_Dat.webp", correctError: "Bánh tróc vỏ không đạt" }
+    ],
+    goods: ["Banh_Mau_Dat.webp", "Banh_Co_Kem_Dat.webp", "Banh_Troc_Vo_Dat.webp", "Banh_Vo_Dat.webp", "Banh_Vet_Nut_Dat.webp", "Banh_Dat_Bong_Khi.webp"]
+  },
+  baobi1: {
+    errors: [
+      { src: "Duong_Han_Qua_Nhiet.webp", correctError: "Đường hàn quá nhiệt" },
+      { src: "Duong_Han_Yeu.webp", correctError: "Đường hàn yếu" },
+      { src: "Duong_han_can_trang_rach.webp", correctError: "Đường hàn cấn trắng rách" },
+      { src: "Sai_Nhoe_Date.webp", correctError: "Sai, nhòe date" },
+      { src: "Duong_han_bung_dau_duoi_lech.webp", correctError: "Đường hàn bung đầu, đầu lệch" },
+      { src: "Bang_Keo_noi_cuon.webp", correctError: "Băng keo nối cuộn" },
+      { src: "Xep_Ly_xi.webp", correctError: "Xếp ly xì" }
+    ],
+    goods: ["Banh_dat.webp"]
+  },
+  baobi2: {
+    errors: [
+      { src: "Sap_xep_goi_banh_khong_dat.webp", correctError: "Sắp xếp gói bánh không đạt" },
+      { src: "Khay_Mop_Meo_Cong_Rach.webp", correctError: "Khay móp méo cong rách" },
+      { src: "Mang_Co_Nhan_Rach.webp", correctError: "Màng co nhăn rách" },
+      { src: "Sai_Nhoe_date.webp", correctError: "Sai, nhòe date" },
+      { src: "Bang_Keo_nho_5mm_khong_dat.webp", correctError: "Băng keo không đạt 5cm" },
+      { src: "Thung_Mop_Meo.webp", correctError: "Thùng móp méo" },
+      { src: "Thung_Thieu_Sai_date.webp", correctError: "Thùng thiếu, sai date" },
+      { src: "Sai_Thieu_date_hop.webp", correctError: "Sai, thiếu date hộp" },
+      { src: "Hu_Hong_Duong_Mo.webp", correctError: "Hư hỏng đường mở" },
+      { src: "Lech_Nap_Hop.webp", correctError: "Lệch nắp hộp" },
+      { src: "Nap_hop_dan_khong_dung.webp", correctError: "Nắp hộp dán không đúng" },
+      { src: "Hu_hong_goc.webp", correctError: "Hư hỏng góc hộp" },
+      { src: "Hop_Bien_dang.webp", correctError: "Hộp biến dạng" },
+      { src: "Duong_han_keo_yeu_lem_keo.webp", correctError: "Đường hàn keo yếu, lem keo" }
+    ],
+    goods: ["Hop_Dat.webp"]
+  }
 };
 
-// --- Lớp Quản lý Game (Giữ nguyên logic) ---
+/* =========================
+   Mapping: mã -> tiếng Việt
+   ========================= */
+const MODE_MAP = {
+  sanpham: "Sản phẩm",
+  baobi1: "Bao bì cấp 1",
+  baobi2: "Bao bì cấp 2"
+};
+/* reverse map: tiếng Việt -> mã (dùng nếu sheet chứa tiếng việt) */
+const REVERSE_MODE_MAP = Object.entries(MODE_MAP).reduce((acc,[k,v])=>{ acc[v]=k; return acc; }, {});
+
+/* =========================
+   QCGame class (giữ logic nhưng thêm mapping khi hiển thị)
+   ========================= */
 class QCGame {
-    constructor() {
-        this.images = [];
-        this.mode = "";
-        this.current = 0;
-        this.score = 0;
-        this.answered = false;
-        this.timeLeft = CONFIG.timerDuration;
-        this.timerInterval = null;
-        this.playerName = "";
+  constructor() {
+    this.images = [];
+    this.mode = "";
+    this.current = 0;
+    this.score = 0;
+    this.answered = false;
+    this.timeLeft = CONFIG.timerDuration;
+    this.timerInterval = null;
+    this.playerName = "";
 
-        this.dom = {
-            menu: document.getElementById("menu"),
-            gameContainer: document.getElementById("game-container"),
-            playerNameInput: document.getElementById("playerName"),
-            timerElement: document.getElementById("timer"),
-            imgElement: document.getElementById("biscuitImage"),
-            resultElement: document.getElementById("result"),
-            scoreElement: document.getElementById("score"),
-            errorSection: document.getElementById("errorSection"),
-            errorSelect: document.getElementById("errorSelect")
-        };
+    this.dom = {
+      menu: document.getElementById("menu"),
+      gameContainer: document.getElementById("game-container"),
+      playerNameInput: document.getElementById("playerName"),
+      timerElement: document.getElementById("timer"),
+      imgElement: document.getElementById("biscuitImage"),
+      resultElement: document.getElementById("result"),
+      scoreElement: document.getElementById("score"),
+      errorSection: document.getElementById("errorSection"),
+      errorSelect: document.getElementById("errorSelect"),
+      rankingWrapper: document.getElementById("ranking-wrapper"),
+      finalScoreText: document.getElementById("finalScoreText"),
+      rankingTable: document.getElementById("rankingTable"),
+      rankingFilter: document.getElementById("rankingFilter")
+    };
 
-        window.startGame = this.startGame.bind(this);
-        window.checkAnswer = this.checkAnswer.bind(this);
-        window.submitError = this.submitError.bind(this);
-        window.nextImage = this.nextImage.bind(this);
+    // expose functions to HTML
+    window.startGame = this.startGame.bind(this);
+    window.checkAnswer = this.checkAnswer.bind(this);
+    window.submitError = this.submitError.bind(this);
+    window.nextImage = this.nextImage.bind(this);
+    window.filterRanking = this.filterRanking.bind(this);
+  }
+
+  shuffleArray(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [array[i], array[j]] = [array[j], array[i]];
     }
+  }
 
-    shuffleArray(array) {
-        for (let i = array.length - 1; i > 0; i--) {
-            const j = Math.floor(Math.random() * (i + 1));
-            [array[i], array[j]] = [array[j], array[i]];
-        }
-    }
+  loadGameData(mode) {
+    const timestamp = `?v=${Date.now()}`;
+    const data = ERROR_DATA[mode];
+    let allImages = [];
+    data.errors.forEach(err => {
+      allImages.push({
+        src: CONFIG.baseURL + err.src + timestamp,
+        isGood: false,
+        correctError: err.correctError
+      });
+    });
+    data.goods.forEach(goodSrc => {
+      allImages.push({
+        src: CONFIG.baseURL + goodSrc + timestamp,
+        isGood: true,
+        correctError: "Đạt"
+      });
+    });
+    this.shuffleArray(allImages);
+    return allImages;
+  }
 
-    loadGameData(mode) {
-        const timestamp = `?v=${Date.now()}`;
-        const data = ERROR_DATA[mode];
-        
-        let allImages = [];
-        
-        data.errors.forEach(err => {
-            allImages.push({ 
-                src: CONFIG.baseURL + err.src + timestamp, 
-                isGood: false, 
-                correctError: err.correctError 
-            });
-        });
-        
-        data.goods.forEach(goodSrc => {
-            allImages.push({ 
-                src: CONFIG.baseURL + goodSrc + timestamp, 
-                isGood: true, 
-                correctError: "Đạt"
-            });
-        });
+  startGame(selectedMode) {
+    this.playerName = this.dom.playerNameInput.value.trim();
+    if (!this.playerName) { alert("Hãy nhập tên!"); return; }
+    this.mode = selectedMode;
+    this.images = this.loadGameData(this.mode);
+    this.current = 0;
+    this.score = 0;
+    this.answered = false;
 
-        this.shuffleArray(allImages);
-        return allImages;
-    }
+    this.dom.menu.style.display = "none";
+    this.dom.gameContainer.style.display = "block";
 
-    startGame(selectedMode) {
-        this.playerName = this.dom.playerNameInput.value.trim();
-        if (!this.playerName) {
-            alert("Hãy nhập tên!");
-            return;
-        }
+    this.loadErrorOptions();
+    this.loadImage();
+    // hide ranking wrapper if previously shown
+    this.dom.rankingWrapper.style.display = "none";
+  }
 
-        this.mode = selectedMode;
-        this.images = this.loadGameData(this.mode);
-        this.current = 0;
-        this.score = 0;
+  loadErrorOptions() {
+    const list = ERROR_DATA[this.mode].errors.map(e => e.correctError);
+    this.dom.errorSelect.innerHTML = "<option value=''>-- Chọn loại lỗi --</option>";
+    list.forEach(opt => {
+      const option = document.createElement("option");
+      option.value = opt;
+      option.textContent = opt;
+      this.dom.errorSelect.appendChild(option);
+    });
+  }
 
-        this.dom.menu.style.display = "none";
-        this.dom.gameContainer.style.display = "block";
-
-        this.loadErrorOptions();
-        this.loadImage();
-    }
-
-    loadErrorOptions() {
-        const errorList = ERROR_DATA[this.mode].errors.map(e => e.correctError);
-        this.dom.errorSelect.innerHTML = "<option value=''>-- Chọn loại lỗi --</option>";
-        errorList.forEach(opt => {
-            const option = document.createElement("option");
-            option.value = opt;
-            option.textContent = opt;
-            this.dom.errorSelect.appendChild(option);
-        });
-    }
-
-    startTimer() {
-        this.timeLeft = CONFIG.timerDuration;
-        this.dom.timerElement.textContent = `Thời gian: ${this.timeLeft}s`;
-        this.timerInterval = setInterval(() => {
-            this.timeLeft--;
-            this.dom.timerElement.textContent = `Thời gian: ${this.timeLeft}s`;
-            if (this.timeLeft <= 0) {
-                clearInterval(this.timerInterval);
-                this.dom.resultElement.textContent = "⏰ Hết thời gian!";
-                this.answered = true;
-                this.dom.errorSection.style.display = "none";
-                setTimeout(this.nextImage.bind(this), 1500);
-            }
-        }, 1000);
-    }
-
-    checkAnswer(isGoodSelected) {
-        if (this.answered) return;
-        
-        const currentImg = this.images[this.current];
+  startTimer() {
+    this.timeLeft = CONFIG.timerDuration;
+    this.dom.timerElement.textContent = `Thời gian: ${this.timeLeft}s`;
+    this.timerInterval = setInterval(() => {
+      this.timeLeft--;
+      this.dom.timerElement.textContent = `Thời gian: ${this.timeLeft}s`;
+      if (this.timeLeft <= 0) {
         clearInterval(this.timerInterval);
-
-        if (currentImg.isGood) {
-            if (isGoodSelected) {
-                this.dom.resultElement.textContent = "🎉 Chính xác! Đây là ảnh đạt!";
-                this.score++;
-            } else {
-                this.dom.resultElement.textContent = "❌ Sai rồi! Đây là ảnh đạt.";
-            }
-            this.answered = true;
-            this.dom.errorSection.style.display = "none";
-            this.dom.scoreElement.textContent = "Điểm: " + this.score;
-        } else {
-            if (!isGoodSelected) {
-                this.dom.resultElement.textContent = "❗ Đây là lỗi, chọn loại lỗi!";
-                this.dom.errorSection.style.display = "block";
-            } else {
-                this.dom.resultElement.textContent = "❌ Sai rồi!";
-                this.answered = true;
-                this.dom.errorSection.style.display = "none";
-            }
-        }
-    }
-
-    submitError() {
-        if (this.answered) return;
-        
-        const selected = this.dom.errorSelect.value;
-        const currentImg = this.images[this.current];
-        
-        if (!selected) {
-            this.dom.resultElement.textContent = "⚠️ Chọn loại lỗi!";
-            return;
-        }
-
-        if (selected === currentImg.correctError) {
-            this.dom.resultElement.textContent = "✅ Chính xác!";
-            this.score++;
-        } else {
-            this.dom.resultElement.textContent = `❌ Sai loại lỗi. Đáp án: ${currentImg.correctError}`;
-        }
-        
-        this.dom.scoreElement.textContent = "Điểm: " + this.score;
+        this.dom.resultElement.textContent = "⏰ Hết thời gian!";
         this.answered = true;
         this.dom.errorSection.style.display = "none";
-        clearInterval(this.timerInterval);
-    }
+        setTimeout(() => this.nextImage(), 1200);
+      }
+    }, 1000);
+  }
 
-    nextImage() {
-        if (this.current < this.images.length - 1) {
-            this.current++;
-            this.loadImage();
-        } else {
-            this.showFinalScore();
-        }
-    }
+  checkAnswer(isGoodSelected) {
+    if (this.answered) return;
+    const currentImg = this.images[this.current];
+    clearInterval(this.timerInterval);
 
-    loadImage() {
-        const currentImg = this.images[this.current];
-        this.dom.imgElement.src = currentImg.src;
-        this.dom.resultElement.textContent = "";
+    if (currentImg.isGood) {
+      if (isGoodSelected) {
+        this.dom.resultElement.textContent = "🎉 Chính xác! Đây là ảnh đạt!";
+        this.score++;
+      } else {
+        this.dom.resultElement.textContent = "❌ Sai rồi! Đây là ảnh đạt.";
+      }
+      this.answered = true;
+      this.dom.errorSection.style.display = "none";
+      this.dom.scoreElement.textContent = "Điểm: " + this.score;
+    } else {
+      if (!isGoodSelected) {
+        this.dom.resultElement.textContent = "❗ Đây là lỗi, chọn loại lỗi!";
+        this.dom.errorSection.style.display = "block";
+      } else {
+        this.dom.resultElement.textContent = "❌ Sai rồi!";
+        this.answered = true;
         this.dom.errorSection.style.display = "none";
-        this.dom.errorSelect.value = "";
-        this.answered = false;
-        clearInterval(this.timerInterval);
-        this.startTimer();
+      }
+    }
+  }
+
+  submitError() {
+    if (this.answered) return;
+    const selected = this.dom.errorSelect.value;
+    const currentImg = this.images[this.current];
+    if (!selected) { this.dom.resultElement.textContent = "⚠️ Chọn loại lỗi!"; return; }
+
+    if (selected === currentImg.correctError) {
+      this.dom.resultElement.textContent = "✅ Chính xác!";
+      this.score++;
+    } else {
+      this.dom.resultElement.textContent = `❌ Sai loại lỗi. Đáp án: ${currentImg.correctError}`;
+    }
+    this.dom.scoreElement.textContent = "Điểm: " + this.score;
+    this.answered = true;
+    this.dom.errorSection.style.display = "none";
+    clearInterval(this.timerInterval);
+  }
+
+  nextImage() {
+    if (this.current < this.images.length - 1) {
+      this.current++;
+      this.loadImage();
+    } else {
+      this.showFinalScore();
+    }
+  }
+
+  loadImage() {
+    const currentImg = this.images[this.current];
+    this.dom.imgElement.src = currentImg.src;
+    this.dom.resultElement.textContent = "";
+    this.dom.errorSection.style.display = "none";
+    this.dom.errorSelect.value = "";
+    this.answered = false;
+    clearInterval(this.timerInterval);
+    this.startTimer();
+  }
+
+  /* POST to Google Apps Script (sends action "save") */
+  async postScore() {
+    // send mode as code (sanpham/baobi1/baobi2) so sheet stores canonical value
+    const payload = {
+      action: "save",
+      ten_nguoi_choi: this.playerName,
+      muc_choi: this.mode,
+      diem: this.score
+    };
+    // Use a simple fetch; Apps Script should return OK if published correctly as Web App.
+    const res = await fetch(CONFIG.scriptURL, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload)
+    });
+    // If Apps Script configured with no-cors response (e.g. called from GH Pages), server may not allow reading body.
+    // We'll try to handle both cases gracefully.
+    if (!res.ok) {
+      // if not ok, still continue (some deployments respond with 200 but opaque).
+      // Throw to show user if truly failed
+      throw new Error(`POST lỗi ${res.status}`);
+    }
+    return res.text();
+  }
+
+  /* GET ranking array from web app: expects [{name, mode, score}, ...] or [{name:, mode:, score:}] */
+  async getRanking() {
+    const res = await fetch(CONFIG.scriptURL + "?action=getRanking");
+    if (!res.ok) throw new Error(`GET lỗi ${res.status}`);
+    return res.json();
+  }
+
+  /* normalize mode value returned from sheet to canonical key (sanpham/baobi1/baobi2)
+     supports if sheet stored either 'sanpham' or 'Sản phẩm' etc. */
+  normalizeModeValue(val) {
+    if (!val && val !== 0) return "";
+    const str = String(val).trim();
+    if (MODE_MAP[str]) return str;             // already key
+    if (REVERSE_MODE_MAP[str]) return REVERSE_MODE_MAP[str]; // Vietnamese -> key
+    // fallback: try lowercase without spaces
+    const low = str.toLowerCase().replace(/\s+/g, "");
+    if (low.includes("sanpham") || low.includes("sảnphẩm")) return "sanpham";
+    if (low.includes("baobi1") || low.includes("bao bicap1") || low.includes("bao bì cấp 1".replace(/\s/g,""))) return "baobi1";
+    if (low.includes("baobi2") || low.includes("bao bicap2") || low.includes("bao bì cấp 2".replace(/\s/g,""))) return "baobi2";
+    return str; // unknown, return original
+  }
+
+  /* Render ranking table with mapping to Vietnamese names and optional filter key (sanpham/baobi1/baobi2) */
+  renderRankingTable(rankingArray, filterKey = "") {
+    const rows = [];
+    // rankingArray expected in format [{name:..., mode:..., score:...}, ...] OR objects with different keys (we handle both)
+    rankingArray.slice(0, 50).forEach((r, idx) => {
+      // Normalize fields
+      const name = r.name ?? r[0] ?? "";
+      const modeRaw = r.mode ?? r[1] ?? r.muc_choi ?? r[2] ?? "";
+      const score = (r.score ?? r[2] ?? r.diem ?? 0);
+      const modeKey = this.normalizeModeValue(modeRaw);
+      // apply filter (if provided)
+      if (filterKey && filterKey !== modeKey) return;
+      rows.push({ name, modeKey, score, originalIndex: idx });
+    });
+
+    // sort by score desc
+    rows.sort((a,b) => Number(b.score) - Number(a.score));
+
+    // trim to top 10
+    const top = rows.slice(0,10);
+
+    // build html
+    let html = "<tr><th>Hạng</th><th>Tên</th><th>Mục chơi</th><th>Điểm</th></tr>";
+    top.forEach((r, i) => {
+      const displayMode = MODE_MAP[r.modeKey] ?? r.modeKey ?? "";
+      const highlight = (r.name === this.playerName && Number(r.score) === Number(this.score)) ? "highlight" : "";
+      html += `<tr class="${highlight}"><td>${i+1}</td><td>${escapeHtml(r.name)}</td><td>${escapeHtml(displayMode)}</td><td>${r.score}</td></tr>`;
+    });
+    this.dom.rankingTable.innerHTML = html;
+  }
+
+  async showFinalScore() {
+    clearInterval(this.timerInterval);
+
+    // hide game UI
+    this.dom.gameContainer.style.display = "none";
+
+    // show ranking wrapper
+    this.dom.rankingWrapper.style.display = "block";
+    this.dom.finalScoreText.textContent = `Điểm của bạn: ${this.score}/${this.images.length}`;
+
+    // show temporary saving message
+    this.dom.rankingTable.innerHTML = "<tr><td colspan='4'>Đang lưu kết quả...</td></tr>";
+
+    try {
+      // Post score (saves mode as code)
+      await this.postScore();
+    } catch (err) {
+      // if POST failed, still continue to GET ranking (sheet may still have old entries)
+      console.warn("POST thất bại (vẫn cố gắng lấy bảng xếp hạng):", err);
     }
 
-    async postScore() {
-        const response = await fetch(CONFIG.scriptURL, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-                action: "save",
-                ten_nguoi_choi: this.playerName,
-                muc_choi: this.mode,
-                diem: this.score
-            })
-        });
-
-        if (!response.ok) {
-            throw new Error(`POST lỗi ${response.status}`);
-        }
-        return response.text();
+    // fetch ranking and render
+    try {
+      const ranking = await this.getRanking();
+      // render all (no filter)
+      this.renderRankingTable(ranking, "");
+    } catch (err) {
+      this.dom.rankingTable.innerHTML = `<tr><td colspan='4'>Không thể tải bảng xếp hạng: ${escapeHtml(err.message)}</td></tr>`;
+      console.error(err);
     }
+  }
 
-    async getRanking() {
-        const response = await fetch(CONFIG.scriptURL + "?action=getRanking");
-        
-        if (!response.ok) {
-            throw new Error(`GET lỗi ${response.status}`);
-        }
-        return response.json();
+  /* Public: filter handler (select uses values = sanpham/baobi1/baobi2 or empty) */
+  async filterRanking() {
+    const sel = document.getElementById("rankingFilter").value; // key or ""
+    try {
+      const ranking = await this.getRanking();
+      this.renderRankingTable(ranking, sel);
+    } catch (err) {
+      console.error(err);
     }
-
-    async showFinalScore() {
-        clearInterval(this.timerInterval);
-        this.dom.gameContainer.innerHTML = `<h2>🎉 Hoàn thành!</h2><p>Điểm của bạn: <strong>${this.score}/${this.images.length}</strong></p><p>Đang lưu kết quả...</p>`;
-
-        try {
-            await this.postScore();
-            await new Promise(r => setTimeout(r, 500)); 
-            const ranking = await this.getRanking();
-
-            let tableHTML = `<h3>🏆 Bảng xếp hạng TOP 10</h3><table><tr><th>Hạng</th><th>Tên</th><th>Mục chơi</th><th>Điểm</th></tr>`;
-            
-            if (Array.isArray(ranking)) {
-                ranking.slice(0, 10).forEach((r, i) => {
-                    tableHTML += `<tr><td>${i + 1}</td><td>${r.name}</td><td>${r.mode}</td><td>${r.score}</td></tr>`;
-                });
-            } else {
-                tableHTML += `<tr><td colspan='4'>Không có dữ liệu</td></tr>`;
-            }
-            tableHTML += "</table><br><button onclick='location.reload()'><i class='fas fa-redo'></i> Chơi lại</button>";
-
-            this.dom.gameContainer.innerHTML = `<h2>🎉 Hoàn thành!</h2><p>Điểm của bạn: <strong>${this.score}/${this.images.length}</strong></p>${tableHTML}`;
-
-        } catch (err) {
-            this.dom.gameContainer.innerHTML = `<h2>🎉 Hoàn thành!</h2><p>Điểm của bạn: <strong>${this.score}/${this.images.length}</strong></p><p>⚠️ Lỗi: ${err.message}</p><button onclick='location.reload()'><i class='fas fa-redo'></i> Chơi lại</button>`;
-            console.error(err);
-        }
-    }
+  }
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-    new QCGame();
+/* Utility: simple HTML escape */
+function escapeHtml(s) {
+  if (s === null || s === undefined) return "";
+  return String(s).replace(/[&<>"']/g, function (m) {
+    return ({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;' })[m];
+  });
+}
+
+/* Bootstrap on DOM load */
+document.addEventListener("DOMContentLoaded", () => {
+  window.qcGame = new QCGame();
 });
+
+/* Expose filterRanking to window for select onchange */
+function filterRanking(){ if (window.qcGame) window.qcGame.filterRanking(); }
 </script>
 </body>
 </html>
-
-
-
-
-
-
-
