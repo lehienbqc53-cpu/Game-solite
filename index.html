@@ -134,13 +134,19 @@ const errorOptions = { sanpham: productErrors.map(e=>e.correctError), baobi1: pa
 // --- Gửi điểm lên Google Sheet ---
 async function saveScore(playerName, mode, score){
   try{
-    await fetch(scriptURL, { 
-      method:"POST",
-      headers: {"Content-Type":"application/json"},
-      body: JSON.stringify({ten_nguoi_choi:playerName, muc_choi:mode, diem:score})
+    await fetch(scriptURL, {
+      method: "POST",
+      contentType: "application/json",
+      body: JSON.stringify({
+        ten_nguoi_choi: playerName,
+        muc_choi: modeMap[mode],
+        diem: score
+      })
     });
-    console.log("✅ Gửi điểm thành công!");
-  }catch(err){ console.error("POST lỗi:", err);}
+    console.log("Gửi điểm OK");
+  }catch(err){
+    console.error(err);
+  }
 }
 
 // --- Lấy bảng xếp hạng ---
@@ -234,3 +240,4 @@ setInterval(()=>{ if(rankingContainer.style.display==="block") updateRankingByMo
 </script>
 </body>
 </html>
+
